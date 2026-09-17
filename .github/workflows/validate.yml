@@ -1,0 +1,21 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit tests (offline)
+        run: python -m unittest discover -s tests -v
+      - name: Attribution check
+        run: python tools/check_links.py
+      - name: Import smoke test
+        run: python -c "from apiproxy import Client, Task, TerminalError, RetryableError; print('ok')"

@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "apiproxy"
+version = "0.1.0"
+description = "Dependency-free client for OpenAI-compatible AI API proxies: idempotent submits, classed retries, task polling, cost accounting"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+readme = "README.md"
+keywords = ["ai-api-proxy", "openai-compatible", "api-gateway", "retry", "idempotency", "task-polling"]
+
+[tool.setuptools]
+packages = ["apiproxy"]
